@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Planning Poker — Menu de partie</title>
+  <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-left">
+      <img src="khrya.png" alt="Logo Planning Poker" class="logo">
+      <span class="site-name">Planning Poker</span>
+    </div>
+    <nav class="header-nav">
+      <a href="index.html" class="nav-link">Accueil</a>
+      <a href="mode.html" class="nav-link">Mode de jeu</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="wrap">
+
+      
+      <div class="head">
+        <div>
+          <h1>Menu de la partie</h1>
+          <p class="muted">
+            Ajoutez les joueurs et chargez un backlog JSON. Vous pourrez ensuite démarrer la session Planning Poker.
+          </p>
+        </div>
+
+        <div class="head-actions">
+          <button id="clearAllBtn" class="btn btn-ghost" type="button" title="Effacer les données locales">
+            Réinitialiser
+          </button>
+          <a href="mode.html" class="btn btn-ghost" title="Modifier le mode">Modifier le mode</a>
+        </div>
+      </div>
+
+      
+      <div class="grid">
+
+        
+        <div class="col">
+
+          
+          <div class="card">
+            <div class="card-title-row">
+              <h2>Résumé de configuration</h2>
+              <span id="configBadge" class="badge">—</span>
+            </div>
+
+            <div class="summary">
+              <div class="summary-item">
+                <div class="k">Projet</div>
+                <div class="v" id="sumProject">—</div>
+              </div>
+              <div class="summary-item">
+                <div class="k">Type de partie</div>
+                <div class="v" id="sumPlayMode">—</div>
+              </div>
+              <div class="summary-item">
+                <div class="k">Joueurs</div>
+                <div class="v" id="sumPlayers">—</div>
+              </div>
+              <div class="summary-item">
+                <div class="k">Règle (tour 1)</div>
+                <div class="v">Strict (unanimité)</div>
+              </div>
+              <div class="summary-item">
+                <div class="k">Règle (tours suivants)</div>
+                <div class="v" id="sumSecondaryRule">—</div>
+              </div>
+            </div>
+
+            <div class="mini-note">
+              <span class="dot"></span>
+              <span>
+                Astuce : si vous êtes en mode <strong>local</strong>, un “animateur” peut cliquer pour masquer/afficher les votes.
+              </span>
+            </div>
+          </div>
+
+          
+          <div class="card">
+            <div class="card-title-row">
+              <h2>Joueurs</h2>
+              <span class="muted small">Saisissez les pseudos</span>
+            </div>
+
+            <div id="playersForm" class="players">
+              
+            </div>
+
+            <div class="row">
+              <button id="autoFillBtn" class="btn btn-ghost" type="button">
+                Remplir automatiquement
+              </button>
+
+              <button id="savePlayersBtn" class="btn btn-primary" type="button">
+                Enregistrer les joueurs
+              </button>
+            </div>
+
+            <div id="playersMsg" class="msg" aria-live="polite"></div>
+          </div>
+
+        </div>
+
+        
+        <div class="col">
+
+          
+          <div class="card">
+            <div class="card-title-row">
+              <h2>Backlog</h2>
+              <span class="muted small">Importer un fichier JSON</span>
+            </div>
+
+            <div class="upload">
+              <input id="backlogFile" type="file" accept=".json" />
+              <button id="loadBacklogBtn" class="btn btn-primary" type="button">
+                Charger le backlog
+              </button>
+            </div>
+
+            <div class="preview">
+              <div class="preview-head">
+                <div>
+                  <div class="preview-title">Aperçu</div>
+                  <div class="muted tiny">Les premières tâches seront affichées ici.</div>
+                </div>
+                <span id="backlogCount" class="badge badge-soft">0 tâches</span>
+              </div>
+
+              <div id="backlogPreview" class="preview-list">
+                <div class="empty">Aucun backlog chargé.</div>
+              </div>
+            </div>
+
+            <details class="help">
+              <summary>Format JSON recommandé</summary>
+              <pre class="code">
+{
+  "project": "Sprint 12",
+  "items": [
+    { "id": 1, "title": "Login", "description": "Connexion utilisateur" },
+    { "id": 2, "title": "Dashboard", "description": "Vue KPI" }
+  ]
+}
+              </pre>
+            </details>
+
+            <div id="backlogMsg" class="msg" aria-live="polite"></div>
+          </div>
+
+          
+          <div class="card">
+            <div class="card-title-row">
+              <h2>Reprendre une partie</h2>
+              <span class="muted small">Charger un JSON sauvegardé</span>

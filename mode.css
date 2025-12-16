@@ -1,0 +1,215 @@
+/* Base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  line-height: 1.5;
+  background-color: #f5f7fa;
+}
+
+/* Header (cohérent avec ton index.css) */
+.site-header {
+  background-color: #0d47a1;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+}
+.header-left { display: flex; align-items: center; gap: 12px; }
+.logo { height: 40px; }
+.site-name { font-size: 1.8rem; font-weight: bold; }
+.header-nav .nav-link {
+  margin-left: 24px;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+/* Page */
+.page {
+  padding: 40px 80px;
+}
+.panel {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.panel-head {
+  margin-bottom: 18px;
+}
+.panel-head h1 {
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+.muted { color: #607080; }
+.muted.small { font-size: 0.95rem; }
+.muted.tiny { font-size: 0.85rem; margin-top: 10px; }
+
+/* Layout grid */
+.grid {
+  display: grid;
+  gap: 18px;
+}
+
+/* Card blocks */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px 18px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.07);
+  border: 1px solid rgba(13,71,161,0.08);
+}
+.card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+/* Choices */
+.choice-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.choice {
+  display: grid;
+  gap: 6px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.12);
+  cursor: pointer;
+  background: #fff;
+}
+.choice input { margin-right: 10px; }
+.choice-title {
+  font-weight: bold;
+  display: inline-block;
+}
+.choice-desc {
+  font-size: 0.95rem;
+  color: #5c6b77;
+}
+
+/* Rows and fields */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.field {
+  display: grid;
+  gap: 6px;
+}
+label { font-weight: 600; }
+input[type="text"], input[type="number"], select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.18);
+  outline: none;
+  background: #fff;
+}
+input:focus, select:focus {
+  border-color: rgba(13,71,161,0.6);
+  box-shadow: 0 0 0 3px rgba(13,71,161,0.12);
+}
+.hint { color: #6b7b88; font-size: 0.85rem; }
+
+/* Rule block */
+.rule-block {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.rule-fixed {
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(25,118,210,0.08);
+  border: 1px solid rgba(25,118,210,0.20);
+}
+.badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #1976d2;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.rule-title { font-weight: 800; margin-bottom: 4px; }
+.rule-desc { color: #546371; }
+
+/* Info list */
+.info {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px dashed rgba(13,71,161,0.35);
+  background: rgba(13,71,161,0.04);
+}
+.info-title { font-weight: 700; margin-bottom: 8px; }
+.info-list { padding-left: 18px; color: #51606e; }
+.info-list li { margin-bottom: 6px; }
+
+/* Criteria */
+.criteria {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+/* Recommendation */
+.recommendation {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: #fff;
+}
+
+/* Actions */
+.actions {
+  display: grid;
+  gap: 10px;
+  align-items: center;
+}
+.btn-row {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  align-items: center;
+}
+.btn {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 700;
+}
+.btn-primary {
+  background: #1976d2;
+  color: #fff;
+}
+.btn-primary:hover { filter: brightness(0.95); }
+.btn-ghost {
+  background: transparent;
+  border-color: rgba(0,0,0,0.18);
+  color: #334;
+}
+.btn-ghost:hover { background: rgba(0,0,0,0.04); }
+
+/* Error */
+.error {
+  min-height: 18px;
+  color: #b00020;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .page { padding: 24px 16px; }
+  .choice-row, .row, .criteria { grid-template-columns: 1fr; }
+  .site-header { padding: 14px 16px; }
+}

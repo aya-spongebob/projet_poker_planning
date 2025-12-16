@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Planning Poker — Choix du mode de jeu</title>
+  <link rel="stylesheet" href="mode.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-left">
+      <img src="khrya.png" alt="Logo Planning Poker" class="logo">
+      <span class="site-name">Planning Poker</span>
+    </div>
+    <nav class="header-nav">
+      <a href="#" class="nav-link">Connexion</a>
+      <a href="#" class="nav-link">Créer un compte</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="panel">
+      <div class="panel-head">
+        <h1>Choisir le mode de jeu</h1>
+        <p class="muted">
+          Le mode <strong>Strict (unanimité)</strong> est toujours appliqué au <strong>1er tour</strong>.
+          Si l’unanimité n’est pas atteinte, les tours suivants utilisent la règle secondaire choisie.
+        </p>
+      </div>
+
+      <form id="modeForm" class="grid" novalidate>
+        <!-- Bloc 1 : Type de partie -->
+        <div class="card">
+          <h1>Type de partie</h1>
+
+          <div class="choice-row">
+            <label class="choice">
+              <input type="radio" name="playMode" value="remote" checked>
+              <span class="choice-title">À distance</span>
+              <span class="choice-desc">Chaque joueur vote depuis son appareil. (Recommandé si l’équipe est distribuée)</span>
+            </label>
+
+            <label class="choice">
+              <input type="radio" name="playMode" value="local">
+              <span class="choice-title">Locale</span>
+              <span class="choice-desc">Un seul appareil, les joueurs votent chacun à leur tour.</span>
+            </label>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="playersCount">Nombre de joueurs</label>
+              <input id="playersCount" type="number" min="2" max="20" value="5" required>
+              <small class="hint">Entre 2 et 20 (tu peux adapter).</small>
+            </div>
+
+            <div class="field">
+              <label for="projectName">Nom du projet (optionnel)</label>
+              <input id="projectName" type="text" placeholder="Ex: Sprint 12 — Refactoring">
+              <small class="hint">Utilisé pour afficher/organiser la partie.</small>
+            </div>
+          </div>
+        </div>
+
+     
+        <div class="card">
+          <h1>Règles d’estimation</h1>
+
+          <div class="rule-block">
+            <div class="rule-fixed">
+              <div class="badge">Obligatoire</div>
+              <div class="rule-title">Strict (unanimité)</div>
+              <p class="rule-desc">
+                Les joueurs votent jusqu’à unanimité (au moins pour le 1er tour de chaque tâche).
+              </p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="secondaryRule">Règle secondaire (à partir du 2ᵉ tour si désaccord)</label>
+            <select id="secondaryRule" required>
+              <option value="average">Moyenne</option>
+              <option value="median">Médiane</option>
+              <option value="absolute_majority">Majorité absolue (plus de 50%)</option>
+              <option value="relative_majority">Majorité relative (score le plus fréquent)</option>
+            </select>
+            <small class="hint">Le 1er tour reste strict. Cette règle s’active seulement ensuite.</small>
+          </div>
+
+          <div class="info">
+            <div class="info-title">Aide rapide</div>
+            <ul class="info-list">
+              <li><strong>Moyenne</strong> : utile si les écarts sont modérés, donne une valeur “centrée”.</li>
+              <li><strong>Médiane</strong> : plus robuste aux votes extrêmes.</li>
+              <li><strong>Majorité absolue</strong> : bon pour trancher si on vise un consensus fort.</li>
+              <li><strong>Majorité relative</strong> : rapide, efficace pour équipes nombreuses.</li>
+            </ul>
+          </div>
+        </div>
+
+       
+        <div class="card">
+          <h1> Aide à la décision</h1>
+          <p class="muted small">
+            Ces critères ne bloquent pas. Ils servent à afficher une recommandation indicative.
+          </p>
+
+          <div class="criteria">
+            <div class="field">
+              <label for="uncertainty">Incertitude des tâches</label>
+              <select id="uncertainty">
+                <option value="low">Faible</option>
+                <option value="medium" selected>Moyenne</option>
+                <option value="high">Élevée</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="urgency">Urgence / timebox</label>
+              <select id="urgency">
+                <option value="low">Faible</option>
+                <option value="medium" selected>Moyenne</option>
+                <option value="high">Élevée</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="teamSize">Taille d’équipe</label>
+              <select id="teamSize">
+                <option value="small">Petite (2–5)</option>
+                <option value="medium" selected>Moyenne (6–9)</option>
+                <option value="large">Grande (10+)</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="needConsensus">Besoin de consensus</label>
+              <select id="needConsensus">
+                <option value="low">Faible</option>
+                <option value="medium" selected>Moyen</option>
+                <option value="high">Élevé</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="recommendation" class="recommendation" aria-live="polite">
+            <strong>Recommandation :</strong> <span id="recommendationText">—</span>
+          </div>
+        </div>
+
+        <!-- Erreurs + actions -->
+        <div class="actions">
+          <div id="formError" class="error" role="alert" aria-live="polite"></div>
+
+          <div class="btn-row">
+            <a class="btn btn-ghost" href="index.html">← Retour</a>
+            <button type="submit" class="btn btn-primary">Continuer</button>
+          </div>
+
+          <p class="muted tiny">
+            Les paramètres sont sauvegardés dans votre navigateur (localStorage).
+          </p>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="mode.js"></script>
+</body>
+</html>
