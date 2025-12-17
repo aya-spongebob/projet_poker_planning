@@ -27,7 +27,7 @@
 
   <section class="grid">
 
-    <!-- LEFT: task + status -->
+    <!-- LEFT -->
     <div class="card">
       <div class="card-head">
         <h2>Tâche en cours</h2>
@@ -61,7 +61,7 @@
       <div class="msg" id="gameMsg"></div>
     </div>
 
-    <!-- RIGHT: identity + vote + board -->
+    <!-- RIGHT -->
     <div class="card">
       <div class="card-head">
         <h2>Voter</h2>
@@ -71,7 +71,9 @@
       <div class="identity" id="identityBox">
         <label for="playerSelect"><strong>Qui vote ?</strong> (mode à distance)</label>
         <select id="playerSelect"></select>
-        <div class="small muted">Astuce : ouvre plusieurs onglets pour simuler plusieurs joueurs.</div>
+        <div class="small muted">
+         
+        </div>
       </div>
 
       <div class="identity" id="localBox" style="display:none">
@@ -88,7 +90,7 @@
 
       <div class="board">
         <div class="board-head">
-        <h3>Tableau des votes</h3>
+          <h3>Tableau des votes</h3>
           <span class="pill soft" id="revealPill">Cachés</span>
         </div>
         <div class="votes" id="votesBox">

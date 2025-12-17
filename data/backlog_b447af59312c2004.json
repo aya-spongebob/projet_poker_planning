@@ -1,0 +1,63 @@
+{
+    "sid": "b447af59312c2004",
+    "cursor": 0,
+    "items": [
+        {
+            "id": 1,
+            "title": "Connexion utilisateur",
+            "description": "Permettre à un utilisateur de se connecter avec email + mot de passe.",
+            "status": "pending",
+            "estimation": null,
+            "rounds": []
+        },
+        {
+            "id": 2,
+            "title": "Mot de passe oublié",
+            "description": "Envoyer un lien de réinitialisation du mot de passe par email.",
+            "status": "pending",
+            "estimation": null,
+            "rounds": []
+        },
+        {
+            "id": 3,
+            "title": "Créer une partie Planning Poker",
+            "description": "Créer une session, définir le nombre de joueurs, et choisir la règle secondaire.",
+            "status": "pending",
+            "estimation": null,
+            "rounds": []
+        },
+        {
+            "id": 4,
+            "title": "Importer backlog JSON",
+            "description": "Importer une liste de tâches et les afficher dans l'ordre.",
+            "status": "pending",
+            "estimation": null,
+            "rounds": []
+        },
+        {
+            "id": 5,
+            "title": "Système de vote",
+            "description": "Chaque joueur choisit une carte (0,1,2,3,5,8,13,20,40,100, café).",
+            "status": "pending",
+            "estimation": null,
+            "rounds": []
+        },
+        {
+            "id": 6,
+            "title": "Validation des estimations",
+            "description": "Tour 1 unanimité obligatoire, puis règle secondaire si désaccord.",
+            "status": "pending",
+            "estimation": null,
+            "rounds": []
+        },
+        {
+            "id": 7,
+            "title": "Export final",
+            "description": "Exporter un JSON final contenant l'estimation validée pour chaque tâche.",
+            "status": "pending",
+            "estimation": null,
+            "rounds": []
+        }
+    ],
+    "updatedAt": "2025-12-17T23:52:34+01:00"
+}
