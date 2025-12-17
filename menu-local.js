@@ -196,7 +196,11 @@
     const b = await API.getBacklog(sid).catch(()=>null);
     if (!b || !b.ok || !b.backlog.items?.length) { startError.textContent="Chargez un backlog."; return; }
 
+<<<<<<< HEAD
     window.location.href = "poker.html";
+=======
+    window.location.href = "poker.html"; // prochaine étape
+>>>>>>> 23594c7d5f4825be0d102228da8203bb66af18f0
   });
 
   clearAllBtn.addEventListener("click", ()=>{
