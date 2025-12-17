@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Planning Poker — Partie</title>
+  <link rel="stylesheet" href="poker.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="logo-dot"></span>
+    <div>
+      <div class="title">Planning Poker</div>
+      <div class="subtitle" id="sessionLine">Session —</div>
+    </div>
+  </div>
+
+  <div class="top-actions">
+    <a class="btn ghost" href="menu-router.html">Menu</a>
+    <button class="btn danger" id="coffeeBtn" type="button">☕ Café (sauvegarder)</button>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="grid">
+
+    <!-- LEFT: task + status -->
+    <div class="card">
+      <div class="card-head">
+        <h2>Tâche en cours</h2>
+        <span class="pill" id="roundPill">Round 1</span>
+      </div>
+
+      <div class="taskbox">
+        <div class="T" id="taskTitle">—</div>
+        <div class="D" id="taskDesc">—</div>
+      </div>
+
+      <div class="info">
+        <div class="row">
+          <div class="k">Mode</div><div class="v" id="modeLabel">—</div>
+        </div>
+        <div class="row">
+          <div class="k">Règle secondaire</div><div class="v" id="ruleLabel">—</div>
+        </div>
+        <div class="row">
+          <div class="k">Progression</div><div class="v" id="progressLabel">—</div>
+        </div>
+      </div>
+
+      <div class="hint" id="hintLine">Le 1er tour est toujours en unanimité.</div>
+
+      <div class="card-actions">
+        <button class="btn ghost" id="revealBtn" type="button">Révéler les votes</button>
+        <button class="btn primary" id="nextBtn" type="button">Suivant</button>
+      </div>
+
+      <div class="msg" id="gameMsg"></div>
+    </div>
+
+    <!-- RIGHT: identity + vote + board -->
+    <div class="card">
+      <div class="card-head">
+        <h2>Voter</h2>
+        <span class="pill soft" id="youPill">—</span>
+      </div>
+
+      <div class="identity" id="identityBox">
+        <label for="playerSelect"><strong>Qui vote ?</strong> (mode à distance)</label>
+        <select id="playerSelect"></select>
+        <div class="small muted">Astuce : ouvre plusieurs onglets pour simuler plusieurs joueurs.</div>
+      </div>
+
+      <div class="identity" id="localBox" style="display:none">
+        <div class="localline">
+          <div>
+            <div class="muted small">Mode local</div>
+            <div class="localname" id="localPlayerName">—</div>
+          </div>
+          <button class="btn ghost" id="nextPlayerBtn" type="button">Joueur suivant</button>
+        </div>
+      </div>
+
+      <div class="cards" id="cards"></div>
+
+      <div class="board">
+        <div class="board-head">
+        <h3>Tableau des votes</h3>
+          <span class="pill soft" id="revealPill">Cachés</span>
+        </div>
+        <div class="votes" id="votesBox">
+          <div class="empty">En attente de votes…</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<script src="js/api.js"></script>
+<script src="poker.js"></script>
+</body>
+</html>

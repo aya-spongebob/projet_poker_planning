@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Planning Poker — Menu (À distance)</title>
+  <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-left">
+    <img src="khrya.png" alt="Logo Planning Poker" class="logo">
+    <span class="site-name">Planning Poker</span>
+  </div>
+  <nav class="header-nav">
+    <a href="mode.html" class="nav-link">Mode de jeu</a>
+  </nav>
+</header>
+
+<main class="page">
+  <section class="wrap">
+
+    <div class="head">
+      <div>
+        <h1>Menu — Mode à distance</h1>
+        <p class="muted">Chaque joueur vote depuis son appareil (session distribuée).</p>
+      </div>
+      <div class="head-actions">
+        <button id="clearAllBtn" class="btn btn-ghost" type="button">Réinitialiser</button>
+      </div>
+    </div>
+
+    <div class="banner">
+      <div class="banner-left">
+        <div class="banner-title">Mode actuel :</div>
+        <div class="banner-mode">À distance</div>
+        <div class="banner-hint muted">Votes simultanés (chacun sur son appareil).</div>
+      </div>
+      <div class="banner-right">
+        <span class="chip">Tour 1 : Unanimité</span>
+        <span id="secondaryLabel" class="chip">Tours suivants : —</span>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="col">
+
+        <div class="card">
+          <div class="card-title-row">
+            <h2>Résumé</h2>
+            <span id="configBadge" class="badge">—</span>
+          </div>
+
+          <div class="summary">
+            <div class="summary-item">
+              <div class="k">Projet</div>
+              <div class="v" id="sumProject">—</div>
+            </div>
+            <div class="summary-item">
+              <div class="k">Joueurs</div>
+              <div class="v" id="sumPlayers">—</div>
+            </div>
+            <div class="summary-item">
+              <div class="k">Règle secondaire</div>
+              <div class="v" id="sumSecondaryRule">—</div>
+            </div>
+            <div class="summary-item">
+              <div class="k">Type</div>
+              <div class="v">À distance</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title-row">
+            <h2>Joueurs</h2>
+            <span class="muted small">Pseudos obligatoires</span>
+          </div>
+
+          <div id="playersForm" class="players"></div>
+
+          <div class="row">
+            <button id="autoFillBtn" class="btn btn-ghost" type="button">Auto</button>
+            <button id="savePlayersBtn" class="btn btn-primary" type="button">Enregistrer joueurs</button>
+          </div>
+          <div id="playersMsg" class="msg" aria-live="polite"></div>
+        </div>
+
+      </div>
+
+      <div class="col">
+
+        <div class="card">
+          <div class="card-title-row">
+            <h2>Backlog</h2>
+            <span class="muted small">Importer un fichier JSON</span>
+          </div>
+
+          <div class="upload">
+            <input id="backlogFile" type="file" accept=".json" />
+            <button id="loadBacklogBtn" class="btn btn-primary" type="button">Charger</button>
+          </div>
+
+          <div class="preview">
+            <div class="preview-head">
+              <div>
+                <div class="preview-title">Aperçu</div>
+                <div class="muted tiny">Les premières tâches s’affichent ici.</div>
+              </div>
+              <span id="backlogCount" class="badge badge-soft">0 tâches</span>
+            </div>
+
+            <div id="backlogPreview" class="preview-list">
+              <div class="empty">Aucun backlog chargé.</div>
+            </div>
+          </div>
+
+          <div id="backlogMsg" class="msg" aria-live="polite"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-title-row">
+            <h2>Reprendre une partie</h2>
+            <span class="muted small">Charger une sauvegarde JSON</span>
+          </div>
+
+          <div class="upload">
+            <input id="resumeFile" type="file" accept=".json" />
+            <button id="loadResumeBtn" class="btn btn-ghost" type="button">Charger la sauvegarde</button>
+          </div>
+
+          <div id="resumeMsg" class="msg" aria-live="polite"></div>
+        </div>
+
+        <div class="card">
+          <h2>Démarrer</h2>
+          <p class="muted small">Enregistrez les joueurs + chargez un backlog, puis lancez la session.</p>
+          <div id="startError" class="error" role="alert" aria-live="polite"></div>
+          <button id="startBtn" class="btn btn-primary btn-big" type="button">Lancer la partie</button>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<script src="js/api.js"></script>
+<script src="menu-remote.js"></script>
+</body>
+</html>
