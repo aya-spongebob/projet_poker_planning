@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Planning Poker — Redirection</title>
+</head>
+<body>
+  <p style="font-family: Arial, sans-serif; padding: 18px;">Redirection…</p>
+
+  <script>
+    try {
+      const cfg = JSON.parse(localStorage.getItem("pp_config") || "null");
+      const mode = cfg?.playMode;
+      if (mode === "local") window.location.href = "menu-local.html";
+      else window.location.href = "menu-remote.html";
+    } catch {
+      window.location.href = "mode.html";
+    }
+  </script>
+</body>
+</html>
