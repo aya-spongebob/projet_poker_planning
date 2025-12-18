@@ -20,7 +20,7 @@ L’objectif est de développer une application fonctionnelle permettant :
 
 - HTML
 - CSS
-- JavaScript (vanilla)
+- JavaScript 
 - PHP (API côté serveur)
 - JSON (backlog et données)
 
