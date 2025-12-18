@@ -39,3 +39,5 @@ L’objectif est de développer une application fonctionnelle permettant :
 ```bash
 git clone https://github.com/aya-spongebob/frontendagile.git
 cd frontendagile
+npm install
+npm test
