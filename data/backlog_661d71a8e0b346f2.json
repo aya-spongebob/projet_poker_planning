@@ -1,0 +1,70 @@
+{
+    "sid": "661d71a8e0b346f2",
+    "cursor": 7,
+    "items": [
+        {
+            "id": 1,
+            "title": "Connexion utilisateur",
+            "description": "Permettre à un utilisateur de se connecter avec email + mot de passe.",
+            "status": "done",
+            "estimation": "0",
+            "rounds": [],
+            "updatedAt": "2025-12-18T21:06:51+01:00"
+        },
+        {
+            "id": 2,
+            "title": "Mot de passe oublié",
+            "description": "Envoyer un lien de réinitialisation du mot de passe par email.",
+            "status": "done",
+            "estimation": "0",
+            "rounds": [],
+            "updatedAt": "2025-12-18T21:08:20+01:00"
+        },
+        {
+            "id": 3,
+            "title": "Créer une partie Planning Poker",
+            "description": "Créer une session, définir le nombre de joueurs, et choisir la règle secondaire.",
+            "status": "done",
+            "estimation": "0",
+            "rounds": [],
+            "updatedAt": "2025-12-18T21:08:29+01:00"
+        },
+        {
+            "id": 4,
+            "title": "Importer backlog JSON",
+            "description": "Importer une liste de tâches et les afficher dans l'ordre.",
+            "status": "done",
+            "estimation": "0",
+            "rounds": [],
+            "updatedAt": "2025-12-18T21:08:34+01:00"
+        },
+        {
+            "id": 5,
+            "title": "Système de vote",
+            "description": "Chaque joueur choisit une carte (0,1,2,3,5,8,13,20,40,100, café).",
+            "status": "done",
+            "estimation": "0",
+            "rounds": [],
+            "updatedAt": "2025-12-18T21:08:38+01:00"
+        },
+        {
+            "id": 6,
+            "title": "Validation des estimations",
+            "description": "Tour 1 unanimité obligatoire, puis règle secondaire si désaccord.",
+            "status": "done",
+            "estimation": "0",
+            "rounds": [],
+            "updatedAt": "2025-12-18T21:08:42+01:00"
+        },
+        {
+            "id": 7,
+            "title": "Export final",
+            "description": "Exporter un JSON final contenant l'estimation validée pour chaque tâche.",
+            "status": "done",
+            "estimation": "0",
+            "rounds": [],
+            "updatedAt": "2025-12-18T21:08:46+01:00"
+        }
+    ],
+    "updatedAt": "2025-12-18T21:08:46+01:00"
+}

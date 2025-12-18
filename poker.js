@@ -2,7 +2,6 @@
   const sid = localStorage.getItem("pp_sid");
   if (!sid) { window.location.href = "mode.html"; return; }
 
-  // UI
   const sessionLine = document.getElementById("sessionLine");
   const roundPill = document.getElementById("roundPill");
   const taskTitle = document.getElementById("taskTitle");
@@ -36,7 +35,6 @@
   let backlog = null;
   let state = null;
 
-  // local-mode pointer
   let localIndex = 0;
 
   function setMsg(text, type="info"){
@@ -129,7 +127,6 @@
     revealBtn.disabled = false;
   }
 
-  // ✅ IMPORTANT : sessionStorage = par onglet (multi-onglets OK)
   function getActivePlayerId(){
     if (cfg.playMode === "remote"){
       return sessionStorage.getItem("pp_pid") || playerSelect.value;
@@ -178,7 +175,6 @@
   async function loadAll(){
     sessionLine.textContent = `Session : ${sid}`;
 
-    // init state if needed
     await fetch(`api/game-state-init.php?sid=${encodeURIComponent(sid)}`)
       .then(r=>r.json()).catch(()=>null);
 
@@ -224,7 +220,6 @@
     }
     state = res.state;
     setMsg(`Vote enregistré : ${val}`);
-
     renderUI();
   }
 
@@ -248,7 +243,6 @@
   nextBtn.addEventListener("click", async ()=>{
     setMsg("");
 
-    // finish -> export
     if (!currentTask()){
       window.location.href = `api/export.php?sid=${encodeURIComponent(sid)}`;
       return;
@@ -277,13 +271,19 @@
   });
 
   coffeeBtn.addEventListener("click", async ()=>{
+    localStorage.setItem("frontendagile:returnToVote", window.location.href);
+
     const res = await fetch(`api/coffee.php?sid=${encodeURIComponent(sid)}`, { method:"POST" })
       .then(r=>r.json()).catch(()=>null);
-    if (!res || !res.ok){ setMsg(res?.error || "Sauvegarde café impossible.","error"); return; }
-    setMsg("Sauvegarde café créée ✅ (resume).");
+
+    if (!res || !res.ok){
+      setMsg(res?.error || "Sauvegarde café impossible.","error");
+      return;
+    }
+
+    window.location.href = "cafe.html";
   });
 
-  // Polling remote
   setInterval(async ()=>{
     if (!cfg || cfg.playMode !== "remote") return;
     const sRes = await fetch(`api/game-state-get.php?sid=${encodeURIComponent(sid)}`)

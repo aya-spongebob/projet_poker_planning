@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pause café</title>
+  <link rel="stylesheet" href="cafe.css" />
+</head>
+<body>
+  <div class="topbar">
+    <button id="backVote" class="btn">Revenir au vote</button>
+    <div class="spacer"></div>
+    <div class="badge">☕ Pause Café</div>
+  </div>
+
+  <main class="card">
+    <h1>Pause Café</h1>
+    <p class="muted">On met le vote en pause, on discute, on note, puis on reprend.</p>
+
+    <label class="label">Sujet / tâche</label>
+    <input id="topic" class="input" placeholder="Ex: Clarifier la règle secondaire" />
+
+    <label class="label">Notes</label>
+    <textarea id="notes" class="textarea" rows="10" placeholder="Décisions, questions, actions..."></textarea>
+
+    <div class="row">
+      <button id="save" class="btn primary">Sauvegarder</button>
+      <button id="clear" class="btn danger">Effacer</button>
+    </div>
+
+    <div id="status" class="muted"></div>
+  </main>
+
+  <script src="cafe.js"></script>
+</body>
+</html>
