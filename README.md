@@ -1,6 +1,6 @@
 # Planning Poker – Projet Poker Planning
 
-Ce projet est une application de Planning Poker réalisée dans le cadre d’un projet académique.  
+Ce projet est une application de Planning Poker réalisée par Aamara Aya, Bouaouich Nouhayla et Amirat Meroua dans le cadre d’un projet académique.  
 Elle permet d’estimer des tâches d’un backlog en utilisant la méthode Planning Poker, avec plusieurs modes de jeu.
 
 ---
@@ -42,3 +42,14 @@ L’objectif est de développer une application fonctionnelle permettant :
 git clone https://github.com/aya-spongebob/projet_poker_planning.git
 cd projet_poker_planning
 
+---
+
+## Fonctionnalités principales
+
+Page d’accueil avec présentation du projet
+Choix du mode de jeu (Local ou Remote)
+Gestion d’un backlog de tâches
+Estimation des tâches avec des cartes de Planning Poker
+Révélation des votes
+Progression dans le backlog
+Pause « Café » permettant d’interrompre la partie et de reprendre ensuite
