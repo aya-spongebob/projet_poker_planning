@@ -42,6 +42,5 @@ L’objectif est de développer une application fonctionnelle permettant :
 ```bash
 git clone https://github.com/aya-spongebob/projet_poker_planning.git
 cd projet_poker_planning
-
----
+```
 hi
