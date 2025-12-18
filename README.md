@@ -44,7 +44,8 @@ git clone https://github.com/aya-spongebob/projet_poker_planning.git
 cd projet_poker_planning
 ```
 2. Lancer un serveur local :
- ```bash  php -S localhost:8000
+ ```bash
+  php -S localhost:8000
 ```
 3. Ouvrir le projet dans le navigateur :
  ```bash
@@ -84,13 +85,13 @@ Certaines informations temporaires sont stockées dans le navigateur
 
 ---
 ## Structure du projet
-index.html : page d’accueil
-mode.html : choix du mode de jeu
-menu-router.html : navigation
-poker.html : page principale de jeu
-poker.js : logique du Planning Poker
-api/ : scripts PHP pour la gestion des données
-cafe.html : page de pause
+- index.html : page d’accueil
+- mode.html : choix du mode de jeu
+- menu-router.html : navigation
+- poker.html : page principale de jeu
+- poker.js : logique du Planning Poker
+- api/ : scripts PHP pour la gestion des données
+- cafe.html : page de pause
 
 ---
 ## Tests unitaires
