@@ -1,4 +1,4 @@
-# Planning Poker 
+# Planning Poker – Projet Poker Planning
 
 Ce projet est une application de Planning Poker réalisée dans le cadre d’un projet académique.  
 Elle permet d’estimer des tâches d’un backlog en utilisant la méthode Planning Poker, avec plusieurs modes de jeu.
@@ -20,15 +20,17 @@ L’objectif est de développer une application fonctionnelle permettant :
 
 - HTML
 - CSS
-- JavaScript 
+- JavaScript (vanilla)
 - PHP (API côté serveur)
 - JSON (backlog et données)
+- Node.js (tests et intégration continue)
 
 ---
 
 ## Prérequis
 
 - PHP version 8 ou plus
+- Node.js (pour les tests et la CI)
 - Un navigateur web moderne
 
 ---
@@ -37,7 +39,6 @@ L’objectif est de développer une application fonctionnelle permettant :
 
 1. Cloner le dépôt :
 ```bash
-git clone https://github.com/aya-spongebob/frontendagile.git
-cd frontendagile
-npm install
-npm test
+git clone https://github.com/aya-spongebob/projet_poker_planning.git
+cd projet_poker_planning
+
