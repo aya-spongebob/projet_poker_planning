@@ -40,16 +40,6 @@ L’objectif est de développer une application fonctionnelle permettant :
 1. Cloner le dépôt :
 ```bash
 git clone https://github.com/aya-spongebob/projet_poker_planning.git
-cd projet_poker_planning
+cd projet_poker_planning ```
 
----
-
-## Fonctionnalités principales
-
-Page d’accueil avec présentation du projet
-Choix du mode de jeu (Local ou Remote)
-Gestion d’un backlog de tâches
-Estimation des tâches avec des cartes de Planning Poker
-Révélation des votes
-Progression dans le backlog
-Pause « Café » permettant d’interrompre la partie et de reprendre ensuite
+php -S localhost:8000
