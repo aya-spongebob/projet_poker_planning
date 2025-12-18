@@ -18,11 +18,11 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Install
-        run: npm ci
+      - name: Install dependencies
+        run: npm install
 
-      - name: Unit tests
+      - name: Run unit tests
         run: npm test
 
-      - name: Generate docs
+      - name: Generate documentation
         run: npm run docs
