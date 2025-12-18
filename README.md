@@ -40,6 +40,7 @@ L’objectif est de développer une application fonctionnelle permettant :
 1. Cloner le dépôt :
 ```bash
 git clone https://github.com/aya-spongebob/projet_poker_planning.git
-cd projet_poker_planning ```
+cd projet_poker_planning
+bash```
 
 php -S localhost:8000
