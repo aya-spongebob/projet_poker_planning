@@ -30,6 +30,7 @@ L’objectif est de développer une application fonctionnelle permettant :
 ## Prérequis
 
 - PHP version 8 ou plus
+- xampp server
 - Node.js (pour les tests et la CI)
 - Un navigateur web moderne
 
