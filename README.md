@@ -45,11 +45,11 @@ cd projet_poker_planning
 ```
 2. Lancer un serveur local :
  ```bash
-  php -S localhost:8000
+  C:\xampp\php\php.exe -S localhost:8000
 ```
 3. Ouvrir le projet dans le navigateur :
  ```bash
-   http://localhost:8000/index.html
+   http://localhost:8000
 ```
 ---
 ## Fonctionnalités principales
