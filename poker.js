@@ -1,3 +1,19 @@
+/**
+ * @file poker.js
+ * @module PlanningPoker
+ * @description
+ * Gestion complète d’une session de Planning Poker :
+ * - chargement de la configuration et du backlog
+ * - gestion des votes (local / remote)
+ * - règles d’unanimité et règles secondaires
+ * - révélation des votes
+ * - passage aux tâches suivantes
+ * - arrêt de la partie en cas de vote 
+ *
+ * @author
+ * Projet Planning Poker – Frontend Agile
+ */
+
 (() => {
   const sid = localStorage.getItem("pp_sid");
   if (!sid) { window.location.href = "mode.html"; return; }
@@ -73,7 +89,12 @@
       cardsBox.appendChild(btn);
     }
   }
-
+/**
+ * Affiche le tableau des votes.
+ *
+ * - Votes masqués si non révélés
+ * - Votes visibles après révélation
+ */
   function renderVotes(){
     const revealed = !!state?.revealed;
     revealPill.textContent = revealed ? "Révélés" : "Cachés";
@@ -100,11 +121,15 @@
     }
     if (!any) votesBox.innerHTML = `<div class="empty">En attente de votes…</div>`;
   }
+/**
+ * Met à jour l’interface utilisateur
+ * en fonction de l’état courant du jeu.
+ */
 
   function renderUI(){
     const task = currentTask();
     if (!task){
-      taskTitle.textContent = "Backlog terminé ✅";
+      taskTitle.textContent = "Backlog terminé ";
       taskDesc.textContent = "Vous pouvez exporter les résultats (Suivant).";
       hintLine.textContent = "Cliquez sur Suivant pour exporter.";
       roundPill.textContent = "FIN";
@@ -126,6 +151,11 @@
     renderVotes();
     revealBtn.disabled = false;
   }
+/**
+ * Détermine l’identifiant du joueur actif.
+ *
+ * @returns {string} Identifiant du joueur courant
+ */
 
   function getActivePlayerId(){
     if (cfg.playMode === "remote"){
@@ -133,7 +163,10 @@
     }
     return String(players[localIndex]?.id || "");
   }
-
+/**
+ * Synchronise l’interface d’identification
+ * selon le mode de jeu (local ou remote).
+ */
   function syncIdentityUI(){
     if (cfg.playMode === "remote"){
       identityBox.style.display = "";
@@ -171,7 +204,18 @@
       youPill.textContent = `Tour : ${players[0]?.name || "—"}`;
     }
   }
-
+/**
+ * Initialise la partie Planning Poker.
+ *
+ * - Initialise l’état serveur
+ * - Charge la configuration
+ * - Charge les joueurs
+ * - Charge le backlog
+ * - Charge l’état courant du jeu
+ * - Initialise l’interface utilisateur
+ *
+ * @returns {Promise<void>}
+ */
   async function loadAll(){
     sessionLine.textContent = `Session : ${sid}`;
 
@@ -201,6 +245,12 @@
     renderCards(null);
     renderUI();
   }
+/**
+ * Enregistre le vote d’un joueur pour la tâche courante.
+ *
+ * @param {string} val - Valeur de la carte choisie
+ * @returns {Promise<void>}
+ */
 
   async function onPickCard(val){
     const pid = getActivePlayerId();
@@ -231,6 +281,10 @@
     renderCards(null);
     setMsg("");
   });
+/**
+ * Révèle les votes de tous les joueurs
+ * pour le round en cours.
+ */
 
   revealBtn.addEventListener("click", async ()=>{
     const res = await fetch(`api/reveal.php?sid=${encodeURIComponent(sid)}`, { method:"POST" })
@@ -239,6 +293,14 @@
     state = res.state;
     renderUI();
   });
+/**
+ * Passe à la tâche suivante du backlog.
+ *
+ * - Vérifie les règles de vote
+ * - Met à jour le curseur
+ * - Réinitialise les votes
+ * - Exporte le backlog si terminé
+ */
 
   nextBtn.addEventListener("click", async ()=>{
     setMsg("");
@@ -269,6 +331,12 @@
 
     renderUI();
   });
+/**
+ * Met la partie en pause (Pause Café).
+ *
+ * Sauvegarde l’état courant
+ * et redirige vers la page café.
+ */
 
   coffeeBtn.addEventListener("click", async ()=>{
     localStorage.setItem("frontendagile:returnToVote", window.location.href);
@@ -283,6 +351,10 @@
 
     window.location.href = "cafe.html";
   });
+/**
+ * Synchronise automatiquement l’état du jeu
+ * en mode distant (polling serveur).
+ */
 
   setInterval(async ()=>{
     if (!cfg || cfg.playMode !== "remote") return;
